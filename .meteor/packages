@@ -20,11 +20,11 @@ autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 coffeescript
 pfafman:plain-handlebars
-twbs:bootstrap
 backbone
 spacebars
 mquandalle:jade
 wolves:bourbon
 fourseven:scss
 grottolabs:mithril
-bootstrap
+less
+twbs:bootstrap
