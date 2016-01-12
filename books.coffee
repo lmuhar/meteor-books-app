@@ -14,14 +14,23 @@ if (Meteor.isClient)
 
       title = e.target.title.value
       author = e.target.author.value
+      pages = e.target.pages.value
+      dateStarted = e.target.dateStarted.value
+      dateFinished = e.target.dateFinished.value
 
       Books.insert({
         title: title,
-        author: author
+        author: author,
+        pages: pages,
+        dateStarted: dateStarted,
+        dateFinished: dateFinished
       })
 
       e.target.title.value = ""
       e.target.author.value = ""
+      e.target.pages.value = ""
+      e.target.dateStarted.value = ""
+      e.target.dateFinished.value = ""
 
     "click .delete": ->
       Books.remove(@_id)
