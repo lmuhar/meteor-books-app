@@ -28,4 +28,5 @@ fourseven:scss
 grottolabs:mithril
 less
 twbs:bootstrap
-digilord:sugarjs
+momentjs:moment
+momentjs:twix
