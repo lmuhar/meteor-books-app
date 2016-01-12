@@ -1,15 +1,30 @@
+Books = new Mongo.Collection("books")
+
 if (Meteor.isClient)
   # counter starts at 0
   Session.setDefault('counter', 0)
 
-  Template.hello.helpers
-    counter: ->
-      return Session.get('counter')
+  Template.body.helpers
+    books: ->
+      return Books.find({})
 
-  Template.hello.events
-    'click button': ->
-      # increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1)
+  Template.body.events
+    submit: (e)->
+      e.preventDefault()
+
+      title = e.target.title.value
+      author = e.target.author.value
+
+      Books.insert({
+        title: title,
+        author: author
+      })
+
+      e.target.title.value = ""
+      e.target.author.value = ""
+
+    "click .delete": ->
+      Books.remove(@_id)
 
 if (Meteor.isServer)
   Meteor.startup
