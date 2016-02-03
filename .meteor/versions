@@ -56,6 +56,7 @@ mquandalle:jade-compiler@0.4.5
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
+peppelg:bootstrap-3-modal@1.0.4
 pfafman:plain-handlebars@1.0.2
 promise@0.5.1
 random@1.0.5
