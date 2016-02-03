@@ -18,7 +18,7 @@ if (Meteor.isClient)
       dateStarted = e.target.dateStarted.value
       dateFinished = e.target.dateFinished.value
 
-      days = moment(dateStarted).twix(dateFinished).length("days")
+      days = moment(dateStarted).twix(dateFinished).length("days") + 1
 
       Books.insert({
         title: title,
