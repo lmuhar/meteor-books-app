@@ -4,12 +4,10 @@ if (Meteor.isClient)
   # counter starts at 0
   Session.setDefault('counter', 0)
 
-  Template.body.helpers
-    books: ->
-      return Books.find({})
+  newBookTemplate = 'add-new-book'
 
-  Template.body.events
-    submit: (e)->
+  Template[newBookTemplate].events
+    submit: (e) ->
       e.preventDefault()
 
       title = e.target.title.value
@@ -28,15 +26,19 @@ if (Meteor.isClient)
         dateFinished: dateFinished,
         days: days
       })
+      Modal.hide()
 
-      e.target.title.value = ""
-      e.target.author.value = ""
-      e.target.pages.value = ""
-      e.target.dateStarted.value = ""
-      e.target.dateFinished.value = ""
+  Template.body.helpers
+    books: ->
+      return Books.find({})
+
+  Template.body.events
 
     "click .delete": ->
       Books.remove(@_id)
+
+    "click .add": ->
+      Modal.show(newBookTemplate)
 
 if (Meteor.isServer)
   Meteor.startup

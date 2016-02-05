@@ -1,0 +1,18 @@
+template(name='add-new-book')
+    .modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title Modal example
+
+                .modal-body
+                    form(class="new-task")
+                        input(type="text" name="title" placeholder="Title")
+                        input(type="text" name="author" placeholder="Author")
+                        input(type="text" name="pages" placeholder="Pages")
+                        input(type="date" name="dateStarted" placeholder="Date Started")
+                        input(type="date" name="dateFinished" placeholder="Date Finished")
+                        button.btn.btn-info(type="submit" name="add"). Add
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+
