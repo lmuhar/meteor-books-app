@@ -4,22 +4,23 @@ head
 body
 
   h1(class="nav-bar") Welcome to Book Tracker!
-
+   
   +book
   div(class="container")
     header
       |Read List
     button(class="add") Add New
-
     table(class="table")
       thead
-        tr
+        tr(class="book")
           td Title
           td Author
           td Pages
           td Date Started
           td Date Finished
           td Days
+          td Avg. Pages
+          td
           td
       tbody
         +each books
@@ -30,6 +31,9 @@ body
            td {{dateStarted}}
            td {{dateFinished}}
            td {{days}}
+           td {{avgPages}}
+           td
+             button(class="edit") Edit
            td
              button(class="delete") Delete
 
