@@ -16,16 +16,32 @@ if (Meteor.isClient)
       dateStarted = e.target.dateStarted.value
       dateFinished = e.target.dateFinished.value
 
-      days = moment(dateStarted).twix(dateFinished).length("days") + 1
+      if dateFinished
+        days = moment(dateStarted).twix(dateFinished).length("days") + 1
+        avgPages = pages / days
+      else
+        days = ""
+        avgPages = ""
 
-      Books.insert({
-        title: title,
-        author: author,
-        pages: pages,
-        dateStarted: dateStarted,
-        dateFinished: dateFinished,
-        days: days
-      })
+      if @_id
+        Books.update({_id: @_id},{
+          title: title,
+          author: author,
+          pages: pages,
+          dateStarted: dateStarted,
+          dateFinished: dateFinished,
+          days: days,
+          avgPages: avgPages
+        })
+      else
+        Books.insert
+          title: title,
+          author: author,
+          pages: pages,
+          dateStarted: dateStarted,
+          dateFinished: dateFinished,
+          days: days,
+          avgPages: avgPages
       Modal.hide()
 
   Template.body.helpers
@@ -33,6 +49,9 @@ if (Meteor.isClient)
       return Books.find({})
 
   Template.body.events
+
+    "click .edit": ->
+      Modal.show newBookTemplate, @
 
     "click .delete": ->
       Books.remove(@_id)
