@@ -17,8 +17,8 @@ if (Meteor.isClient)
       dateFinished = e.target.dateFinished.value
 
       if dateFinished
-        days = moment(dateStarted).twix(dateFinished).length("days") + 1
-        avgPages = pages / days
+        days = moment(dateStarted).twix(dateFinished).length("days") + 2 #plus 2 to include the days on either side
+        avgPages = Math.round(pages / days)
       else
         days = ""
         avgPages = ""
