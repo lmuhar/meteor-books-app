@@ -9,8 +9,8 @@ body
   div(class="container")
     header
       |Read List
-    button(class="add") Add New
-    table(class="table")
+    button(class="add btn btn-primary") Add New
+    table(class="table table-striped")
       thead
         tr(class="book")
           td Title
@@ -33,8 +33,8 @@ body
            td {{days}}
            td {{avgPages}}
            td
-             button(class="edit") Edit
+             button(class="edit btn btn-default") Edit
            td
-             button(class="delete") Delete
+             button(class="delete red btn btn-danger") Delete
 
 template(name="book")
