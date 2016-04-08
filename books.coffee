@@ -7,6 +7,10 @@ if (Meteor.isClient)
 
   newBookTemplate = 'add-new-book'
 
+  Template[newBookTemplate].onRendered ->
+    $('#date-started').datepicker({autoclose: true})
+    $('#date-finished').datepicker({autoclose: true})
+
   Template[newBookTemplate].events
     submit: (e) ->
       e.preventDefault()
@@ -48,6 +52,9 @@ if (Meteor.isClient)
   Template.body.helpers
     books: ->
       return Books.find({})
+
+  Template.registerHelper 'formatDate', (date) ->
+    moment(date).format('Do MMM YY')
 
   Template.body.events
 

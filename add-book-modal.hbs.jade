@@ -6,12 +6,12 @@ template(name='add-new-book')
                     h4.modal-title Modal example
 
                 .modal-body
-                  form(class="new-task")
+                  form.form-group(class="new-task")
                     input(type="text" name="title" placeholder="Title" value="{{title}}")
                     input(type="text" name="author" placeholder="Author" value="{{author}}")
                     input(type="number" name="pages" placeholder="Pages" value="{{pages}}")
-                    input(type="date" name="dateStarted" placeholder="Date Started" value="{{dateStarted}}")
-                    input(type="date" name="dateFinished" placeholder="Date Finished" value="{{dateFinished}}")
+                    input(id="date-started" type="text" name="dateStarted" placeholder="Date Started" value="{{dateStarted}}")
+                    input(id="date-finished" type="text" name="dateFinished" placeholder="Date Finished" value="{{dateFinished}}")
                     button.btn.btn-info(type="submit" name="add"){{#if _id}} Update {{else}} Add {{/if}}
                 .modal-footer
                     button.btn.btn-default.close(type='button', data-dismiss='modal') Close
