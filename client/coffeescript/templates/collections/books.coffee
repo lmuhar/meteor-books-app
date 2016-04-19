@@ -1,6 +1,5 @@
-Books = new Mongo.Collection("books")
 
-if (Meteor.isClient)
+Meteor.startup ->
   # counter starts at 0
 
   Session.setDefault('counter', 0)
@@ -67,6 +66,3 @@ if (Meteor.isClient)
     "click .add": ->
       Modal.show(newBookTemplate)
 
-if (Meteor.isServer)
-  Meteor.startup
-    # code to run on server at startup
