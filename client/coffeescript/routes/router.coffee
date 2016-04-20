@@ -39,10 +39,10 @@
   home: () ->
     @.go Template.home
 
-  cars: () ->
+  books: () ->
     @.go Template.books
 
-  cars_car: (id) ->
+  books_book: (id) ->
     @.go Template.bookDetail, false, {id: id}
 
   account: () ->
