@@ -48,14 +48,14 @@ Meteor.startup ->
           avgPages: avgPages
       Modal.hide()
 
-  Template.body.helpers
+  Template.books.helpers
     books: ->
       return Books.find({})
 
   Template.registerHelper 'formatDate', (date) ->
     moment(date).format('Do MMM YY')
 
-  Template.body.events
+  Template.books.events
 
     "click .edit": ->
       Modal.show newBookTemplate, @
@@ -64,5 +64,6 @@ Meteor.startup ->
       Books.remove(@_id)
 
     "click .add": ->
+      debugger
       Modal.show(newBookTemplate)
 
