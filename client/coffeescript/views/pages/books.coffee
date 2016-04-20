@@ -52,9 +52,6 @@ Meteor.startup ->
     books: ->
       return Books.find({})
 
-  Template.registerHelper 'formatDate', (date) ->
-    moment(date).format('Do MMM YY')
-
   Template.books.events
 
     "click .edit": ->
