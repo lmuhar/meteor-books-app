@@ -20,5 +20,4 @@ Books.allow
 Meteor.startup () ->
 # Fill the collection with some initial data if it's empty
   if Books.find().count() == 0
-    Books.insert({title: "TEST", author: "test", pages: 212})
-    Books.insert({title: "TEST", author: "test", pages: 455})
+    console.log "no data"
