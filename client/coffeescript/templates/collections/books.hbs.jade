@@ -1,10 +1,4 @@
-head
-  title Books
-
-body
-
-  h1(class="nav-bar") Welcome to Book Tracker!
-   
+template(name="books")
   +book
   div(class="container")
     header
@@ -36,5 +30,3 @@ body
              button(class="edit btn btn-default") Edit
            td
              button(class="delete red btn btn-danger") Delete
-
-template(name="book")

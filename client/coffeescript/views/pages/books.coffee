@@ -1,6 +1,5 @@
-Books = new Mongo.Collection("books")
 
-if (Meteor.isClient)
+Meteor.startup ->
   # counter starts at 0
 
   Session.setDefault('counter', 0)
@@ -49,14 +48,11 @@ if (Meteor.isClient)
           avgPages: avgPages
       Modal.hide()
 
-  Template.body.helpers
+  Template.books.helpers
     books: ->
       return Books.find({})
 
-  Template.registerHelper 'formatDate', (date) ->
-    moment(date).format('Do MMM YY')
-
-  Template.body.events
+  Template.books.events
 
     "click .edit": ->
       Modal.show newBookTemplate, @
@@ -65,8 +61,6 @@ if (Meteor.isClient)
       Books.remove(@_id)
 
     "click .add": ->
+      debugger
       Modal.show(newBookTemplate)
 
-if (Meteor.isServer)
-  Meteor.startup
-    # code to run on server at startup
