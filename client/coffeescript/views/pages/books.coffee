@@ -29,13 +29,15 @@ Meteor.startup ->
 
       if @_id
         Books.update({_id: @_id},{
-          title: title,
-          author: author,
-          pages: pages,
-          dateStarted: dateStarted,
-          dateFinished: dateFinished,
-          days: days,
-          avgPages: avgPages
+          $set: {
+            title: title,
+            author: author,
+            pages: pages,
+            dateStarted: dateStarted,
+            dateFinished: dateFinished,
+            days: days,
+            avgPages: avgPages
+          }
         })
       else
         Books.insert
